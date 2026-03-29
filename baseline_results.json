@@ -1,0 +1,19 @@
+{
+  "model": "Qwen/Qwen2.5-72B-Instruct",
+  "scores": {
+    "task_easy": {
+      "score": 0.595,
+      "time_seconds": 73.0
+    },
+    "task_medium": {
+      "score": 1.0,
+      "time_seconds": 65.9
+    },
+    "task_hard": {
+      "score": 0.77,
+      "time_seconds": 103.7
+    }
+  },
+  "average": 0.7883333333333334,
+  "total_time_seconds": 242.6
+}

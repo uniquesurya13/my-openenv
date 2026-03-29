@@ -1,0 +1,25 @@
+version: "1.0"
+name: "Email Triage"
+description: "A real-world OpenEnv environment for email triage and categorization."
+metadata:
+  difficulty: "variable"
+  domain: "customer_support"
+
+environment:
+  entrypoint: "email_env:EmailEnvironment"
+
+tasks:
+  - id: "task_1_easy_spam"
+    description: "Move specific spam emails (ID: email_2, email_4) to the Spam folder."
+    difficulty: "easy"
+    grader: "tasks_def:grader_easy"
+  
+  - id: "task_2_medium_categorize"
+    description: "Categorize 5 emails into Billing, Technical Support, and Spam."
+    difficulty: "medium"
+    grader: "tasks_def:grader_medium"
+
+  - id: "task_3_hard_refund"
+    description: "Find a refund request (ID: email_10), verify policy status, move to Refunds folder and reply with order number."
+    difficulty: "hard"
+    grader: "tasks_def:grader_hard"

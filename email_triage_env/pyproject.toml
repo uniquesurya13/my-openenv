@@ -1,0 +1,19 @@
+[project]
+name = "email_triage"
+version = "0.1.0"
+description = "Email Triage OpenEnv Environment"
+authors = [{name = "Hacker"}]
+dependencies = [
+    "openenv-core",
+    "openenv",
+    "pydantic",
+    "fastapi",
+    "uvicorn"
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"

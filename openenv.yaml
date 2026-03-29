@@ -1,0 +1,47 @@
+name: code-review-env
+version: "1.0.0"
+description: >
+  A real-world code review environment where an AI agent acts as a code reviewer.
+  The agent reads pull request diffs, identifies bugs, security issues, style violations,
+  and logical errors, then produces structured review comments with severity ratings.
+author: SURYA CHITTEM
+tags:
+  - openenv
+  - code-review
+  - software-engineering
+  - real-world
+tasks:
+  - id: task_easy
+    name: Style & Formatting Review
+    difficulty: easy
+    max_steps: 10
+    description: >
+      Review a small Python function for PEP8 style violations and basic formatting issues.
+  - id: task_medium
+    name: Bug Detection Review
+    difficulty: medium
+    max_steps: 15
+    description: >
+      Review a Python module with subtle logic bugs, off-by-one errors, and incorrect
+      exception handling. Identify and comment on all bugs.
+  - id: task_hard
+    name: Security Vulnerability Review
+    difficulty: hard
+    max_steps: 20
+    description: >
+      Review a web application backend with multiple security vulnerabilities including
+      SQL injection, XSS, insecure deserialization, and broken authentication.
+      Identify, classify, and suggest fixes for all vulnerabilities.
+action_space:
+  type: object
+  description: >
+    The agent submits a review action containing line-level comments and an overall verdict.
+observation_space:
+  type: object
+  description: >
+    The agent observes the pull request diff, file metadata, existing comments, and task instructions.
+api:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+  tasks: GET /tasks

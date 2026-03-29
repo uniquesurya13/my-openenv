@@ -6,15 +6,16 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create standard standard user for HF Space
+RUN useradd -m -u 1000 user
+USER user
+ENV HOME=/home/user \
+    PATH=/home/user/.local/bin:$PATH
+
+WORKDIR $HOME/app
+
 # Copy all source files
-COPY . .
-
-# Create __init__.py files for package imports
-RUN touch tasks/__init__.py graders/__init__.py
-
-# HuggingFace Spaces runs as non-root
-RUN useradd -m appuser && chown -R appuser:appuser /app
-USER appuser
+COPY --chown=user . $HOME/app
 
 # Expose port (HF Spaces uses 7860)
 EXPOSE 7860
